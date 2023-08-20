@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <style>
-        h1{
+        /* h1{
             text-align: center;
         }
         input{
@@ -10,7 +10,7 @@
         }
         .div{
             text-align: center;
-        }
+        } */
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,16 +18,18 @@
 </head>
 <body>
     <h1>Do-List</h1>
-    <input class="dolist"><button class="add" onclick="add()">Add</button>
+    <input class="dolist"><input type=date class="date"><button class="add" onclick="add()">Add</button>
     <div class="div"></div>
 </body>
 <script>
-    const list=['hari'];
+    const list=
+    [{name:'Hari',
+      date:'01-02-2002'}];
     function add1(){
     let list1='';
     for(let i=0;i<list.length;i++){
         let add1=list[i];
-        let ad=`<p>${add1}<button onclick="list.splice(${i},1); add1();">Delect</button></p>`;
+        let ad=`<p>${add1.name}    -    ${add1.date} <button onclick="list.splice(${i},1); add1();">Delect</button></p>`;
         list1+=ad;
     }
     let doc=document.querySelector('div').innerHTML=list1;
@@ -36,10 +38,15 @@
 
 function add(){
         const add=document.querySelector('.dolist').value;
-        if(add===''){
+        const date=document.querySelector('.date').value;
+        console.log(add);
+        if(add==='' || date===''){
 
         }else{
-            list.push(add);
+            list.push({
+                name:add,
+                date:date
+            });
          }
         add1();
     }
