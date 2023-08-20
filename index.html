@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        h1{
+            text-align: center;
+        }
+        input{
+            margin-left: 43%;
+        }
+        .div{
+            text-align: center;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Do-List</h1>
+    <input class="dolist"><button class="add" onclick="add()">Add</button>
+    <div class="div"></div>
+</body>
+<script>
+    const list=['hari'];
+    function add1(){
+    let list1='';
+    for(let i=0;i<list.length;i++){
+        let add1=list[i];
+        let ad=`<p>${add1}<button onclick="list.splice(${i},1); add1();">Delect</button></p>`;
+        list1+=ad;
+    }
+    let doc=document.querySelector('div').innerHTML=list1;
+    list1='';
+}
+
+function add(){
+        const add=document.querySelector('.dolist').value;
+        if(add===''){
+
+        }else{
+            list.push(add);
+         }
+        add1();
+    }
+</script>
+</html>
